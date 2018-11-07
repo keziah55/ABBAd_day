@@ -58,7 +58,6 @@ void playRandom() {
     // select a random file and play it
     //Serial.println("About to get file to play...");
     fileName = getFileName();
-    Serial.println(fileName);
     audio.play(fileName);
 }
 
@@ -75,13 +74,13 @@ void loop() {
  
     if ( sensorValue >= 750 ) {
         if ( !audio.isPlaying() ) {
-            Serial.print(sensorValue);
-            Serial.print("\t");
             playRandom();
         }
     }
     else
         audio.stopPlayback();
    
-    delay(200);
+    // wait 200ms so it's not constantly calling playRandom() when a bunch
+    // of values are fluctuating around 750
+    delay(200); 
 }

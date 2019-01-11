@@ -22,7 +22,7 @@ TMRpcm audio;
 
 // variables for picking a random file
 char* fileName;
-char *fileArray[24];
+char *fileArray[26];
 int arrSize = 24;
 
 // LDR input
@@ -71,8 +71,9 @@ char* getFileName() {
 void loop() {  
   
     sensorValue = analogRead(sensorPin);  
+    Serial.println(sensorValue);
  
-    if ( sensorValue >= 750 ) {
+    if ( sensorValue >= 650 ) {
         if ( !audio.isPlaying() ) {
             playRandom();
         }
@@ -81,6 +82,6 @@ void loop() {
         audio.stopPlayback();
    
     // wait 200ms so it's not constantly calling playRandom() when a bunch
-    // of values are fluctuating around 750
+    // of values are fluctuating around 800
     delay(200); 
 }

@@ -23,7 +23,7 @@ TMRpcm audio;
 // variables for picking a random file
 char* fileName;
 char *fileArray[26];
-int arrSize = 24;
+int arrSize = 26;
 
 // LDR input
 int sensorPin = A0;

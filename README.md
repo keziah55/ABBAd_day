@@ -52,5 +52,5 @@ manually until I get round to doing it properly.
 
 
 ## Requirements
-* sox
+* [sox](http://sox.sourceforge.net/)
 * [TMRpcm](https://github.com/TMRh20/TMRpcm)

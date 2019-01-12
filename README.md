@@ -48,7 +48,8 @@ execute both of these functions. Use `--help` to get the command
 line args.
 
 Note that you'll have to change the array size in `ABBAd_day.ino`
-manually until I get round to doing it properly.
+manually until I get round to doing it properly, and update the array
+in `fileArray.ino`.
 
 
 ## Requirements

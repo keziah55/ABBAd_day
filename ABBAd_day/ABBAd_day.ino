@@ -3,7 +3,7 @@
 #include <TMRpcm.h>          // audio playing library
  
 /////////////////////////////////////////////
-// SD card attached to SPI bus as follows: //
+// SD card attached as follows: //
 // ** MOSI - pin 11                        //
 // ** MISO - pin 12                        //
 // ** CLK  - pin 13                        //

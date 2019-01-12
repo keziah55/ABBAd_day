@@ -5,16 +5,32 @@ to make their flatmate's kitchen cupboard play ABBA
 songs whenever they open the door (or any songs really.)
 
 I built (and tested) this project with an Arduino Uno. 
-For some reason, I couldn't get a Nano to read an SD card.
-I'll upload a circuit diagram eventually.
+
+I have uploaded a circuit diagram, such as it is. I used a LM386 module;
+you may wish to use the chip itself and a bunch of resistors and capacitors, 
+per the data sheet.
 
 ## Hardware
 * Arduino Uno
 * 9V battery and battery clip
 * LDR
-* 200kOhm resistor
+* 200k resistor
 * SD card and SD card reader
 * 0.2W speaker
+* LM386 amplifier (either as a module, or with RC feedback, per the data sheet)
+
+I set up a volatge divider with the LDR and 200k resistor between 5V and ground.
+The voltage input goes into pin A0 on the Arduino.
+
+The amplifier/speaker is connected to pin 9.
+
+The SD card reader is connected as follows:
+* MOSI - pin 11 
+* MISO - pin 12 
+* CLK  - pin 13
+* CS   - pin 4 
+
+![Circuit diagram](circuit/circuit_diagram.jpg)
 
 ## Software
 `convert_wav_arduino.py` is a Python script which provides 
@@ -37,4 +53,4 @@ manually until I get round to doing it properly.
 
 ## Requirements
 * sox
-* TMRpcm (https://github.com/TMRh20/TMRpcm)
+* [TMRpcm](https://github.com/TMRh20/TMRpcm)

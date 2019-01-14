@@ -10,6 +10,12 @@ I have uploaded a circuit diagram, such as it is. I used a LM386 module;
 you may wish to use the chip itself and a bunch of resistors and capacitors, 
 per the data sheet.
 
+Hide the circuit in the cupboard with the LDR near the front, so it 
+will detect the change in light level when the door is opened.
+You may need to change the threshold (line 33 in `ABBAd_day.ino`) which
+triggers the audio, depending on the light level in your kitchen.
+
+
 ## Hardware
 * Arduino Uno
 * 9V battery and battery clip
@@ -17,7 +23,7 @@ per the data sheet.
 * 200k resistor
 * SD card and SD card reader
 * 0.2W speaker
-* LM386 amplifier (either as a module, or with RC feedback, per the data sheet)
+* LM386 amplifier (either as a module, or with RC feedback, per the [data sheet](http://www.ti.com/lit/ds/symlink/lm386.pdf))
 
 I set up a volatge divider with the LDR and 200k resistor between 5V and ground.
 The voltage input goes into pin A0 on the Arduino.
@@ -30,9 +36,10 @@ The SD card reader is connected as follows:
 * CLK  - pin 13
 * CS   - pin 4 
 
-### Circuit diagram 
 
+### Circuit diagram 
 <img src="circuit/circuit_diagram.jpg" alt="circuit diagram" height="500" />
+
 
 ## Software
 `convert_wav_arduino.py` is a Python script which provides 

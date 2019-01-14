@@ -29,6 +29,9 @@ int arrSize = 26;
 int sensorPin = A0;
 int sensorValue = 0;
 
+// threshold to compare sensor value with
+int threshold = 650;
+
 void setup() {
       
     // only need this if printing to serial monitor
@@ -73,7 +76,7 @@ void loop() {
     sensorValue = analogRead(sensorPin);  
     Serial.println(sensorValue);
  
-    if ( sensorValue >= 650 ) {
+    if ( sensorValue >= threshold ) {
         if ( !audio.isPlaying() ) {
             playRandom();
         }

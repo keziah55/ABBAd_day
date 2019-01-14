@@ -8,7 +8,7 @@ I built (and tested) this project with an Arduino Uno.
 
 I have uploaded a circuit diagram, such as it is. I used a LM386 module;
 you may wish to use the chip itself and a bunch of resistors and capacitors, 
-per the data sheet.
+per the [data sheet](http://www.ti.com/lit/ds/symlink/lm386.pdf).
 
 Hide the circuit in the cupboard with the LDR near the front, so it 
 will detect the change in light level when the door is opened.

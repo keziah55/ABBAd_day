@@ -30,7 +30,7 @@ The SD card reader is connected as follows:
 * CLK  - pin 13
 * CS   - pin 4 
 
-<img src="circuit/circuit_diagram.jpg" alt=circuit diagram" height="500" />
+<img src="circuit/circuit_diagram.jpg" alt="circuit diagram" height="500" />
 
 ## Software
 `convert_wav_arduino.py` is a Python script which provides 
@@ -51,7 +51,7 @@ Note that you'll have to change the array size in `ABBAd_day.ino`
 manually until I get round to doing it properly, and update the array
 in `fileArray.ino`.
 
-If you want to convert an mp3 to wav manually, use the following command
+If you want to convert an mp3 to wav manually, use the following command:
 ```
 sox input.mp3 -r 32000 -c 1 -b 8 0.wav
 ```

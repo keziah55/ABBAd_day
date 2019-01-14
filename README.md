@@ -30,7 +30,9 @@ The SD card reader is connected as follows:
 * CLK  - pin 13
 * CS   - pin 4 
 
-![Circuit diagram](circuit/circuit_diagram.jpg)
+<!--  ![Circuit diagram](circuit/circuit_diagram.jpg) -->
+
+<img src="circuit/circuit_diagram.jpg" height="200" />
 
 ## Software
 `convert_wav_arduino.py` is a Python script which provides 

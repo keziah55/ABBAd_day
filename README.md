@@ -30,6 +30,8 @@ The SD card reader is connected as follows:
 * CLK  - pin 13
 * CS   - pin 4 
 
+### Circuit diagram 
+
 <img src="circuit/circuit_diagram.jpg" alt="circuit diagram" height="500" />
 
 ## Software

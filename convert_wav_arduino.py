@@ -5,6 +5,7 @@ Convert mp3s to 8-bit 32kHz mono wav files and write ABBAd_day/fileArray.ino
 file.
 """
 
+import re
 import os
 import subprocess
 import argparse
@@ -43,7 +44,7 @@ def make_wavs(filelist, outdir):
             track = line
             track = track.replace(' ', '\ ')
             track = track.replace('(', '\(')
-            track = track.replace(')', ')')
+            track = track.replace(')', '\)')
             
             # wav file to write
             outfile = "{}.wav".format(i)
@@ -57,16 +58,18 @@ def make_wavs(filelist, outdir):
             i += 1
     
     
-def make_ino_file(inofile, wavdir):
+def make_ino_file(path, wavdir):
     """ Make .ino file containing a function to populate an array of file names
     
         Paramters
         ---------
-        inofile : str
-            Path to file to
+        path : str
+            Path to .ino file directory
         wavdir : str
             Directory where the wavs are
     """
+    
+    inofile = os.path.join(path, 'fileArray.ino')
     
     # beginning of file
     out = '//////////////////////////////////////////////\n'
@@ -85,19 +88,50 @@ def make_ino_file(inofile, wavdir):
         
     out += '}\n'
         
+    update_main_ino(path, len(ls))
+        
     # write .ino file
     with open(inofile, 'w') as fileobj:
         fileobj.write(out)
-
+        
+        
+def update_main_ino(path, size):
+    """ Automatically change the array size in ABBAd_day.ino """
+    
+    inoFile = os.path.join(path, 'ABBAd_day.ino')
+    
+    # read file
+    with open(inoFile) as fileobj:
+        text = fileobj.read()
+        
+    # regexes of the two lines that need to be updated
+    lines = [r'char \*fileArray\[(\d+)\];', r'int arrSize = (\d+);']
+    
+    for line in lines:
+        # find line in text
+        srch = re.search(line, text)
+        # store original line
+        full_line = srch.group(0)
+        # get current array size from the line
+        current_size = srch.group(1)
+        # make new line by substituting the new size for the old size
+        new_line = re.sub(current_size, str(size), full_line)
+        # replace the line in the text
+        text = re.sub(re.escape(full_line), new_line, text)
+        
+    # write updated file
+    with open(inoFile, 'w') as fileobj:
+        fileobj.write(text)
+    
 
 if __name__ == '__main__':
-    
+
+
     parser = argparse.ArgumentParser(description=__doc__)
     
     parser.add_argument('mp3FileList', help='File listing mp3 files to be '
                         'converted. Please provide full path to each.')
     parser.add_argument('wavDir', help='Path to write wavs to.')
-#    parser.add_argument('inoFile', help='Filename to write ino file to.')
 
     args = parser.parse_args()
         
@@ -106,7 +140,7 @@ if __name__ == '__main__':
     print('Done!')
     
     print('Writing .ino file...', end='')
-    inoFile = os.path.join('ABBAd_day', 'fileArray.ino')
-    make_ino_file(inoFile, args.wavDir)
+    inoDir = 'ABBAd_day'
+    make_ino_file(inoDir, args.wavDir)
     print('Done!')
     

@@ -36,22 +36,20 @@ The SD card reader is connected as follows:
 
 ## Software
 `convert_wav_arduino.py` is a Python script which provides 
-two functions. 
+several functions.
 
-The first takes a file which lists a bunch of mp3s 
-and converts them to wav files (8-bit, 32kHz, mono wavs, so that
-the Arduino can play them).
+The first function takes a file which, when given a text file listing 
+a bunch of mp3 files, converts them to wav files (8-bit, 32kHz, mono wavs, 
+so that the Arduino can play them).
 
 The second makes another .ino file which contains an array of 
-the wav file names.
+the wav file names. It also calls another function, which updates
+the main .ino file, `ABBAd_day.ino`, to set the correct fileArray 
+size.
 
 You can run `convert_wav_arduino.py` from the command line to
 execute both of these functions. Use `--help` to see the command
 line args.
-
-Note that you'll have to change the array size in `ABBAd_day.ino`
-manually until I get round to doing it properly, and update the array
-in `fileArray.ino`.
 
 If you want to convert an mp3 to wav manually, use the following command:
 ```

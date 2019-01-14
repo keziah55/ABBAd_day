@@ -32,7 +32,7 @@ The SD card reader is connected as follows:
 
 <!--  ![Circuit diagram](circuit/circuit_diagram.jpg) -->
 
-<img src="circuit/circuit_diagram.jpg" height="500" />
+<img src="circuit/circuit_diagram.jpg" alt=circuit diagram" class="center" height="500" />
 
 ## Software
 `convert_wav_arduino.py` is a Python script which provides 

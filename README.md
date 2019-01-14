@@ -46,7 +46,7 @@ The second makes another .ino file which contains an array of
 the wav file names.
 
 You can run `convert_wav_arduino.py` from the command line to
-execute both of these functions. Use `--help` to get the command
+execute both of these functions. Use `--help` to see the command
 line args.
 
 Note that you'll have to change the array size in `ABBAd_day.ino`
